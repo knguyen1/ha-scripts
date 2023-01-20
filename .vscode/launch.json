@@ -1,0 +1,93 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PyTest: Current file",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "module": "pytest",
+            // "program": "${file}",
+            "args": [
+                "${file}"
+                // "-v",
+                // "-m not crypto and not s3_slow and not s3",
+                // "-m pyfish_web_gui",
+                // "-k flaskr/test_blog",
+                // "-m pfileset",
+                // "-m cryto_gpg",
+            ],
+            "cwd": "${workspaceRoot}/src",
+        },
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "flaskr",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                // "WaitOnNormalExit",
+                "RedirectOutput"
+            ],
+            "args": [
+                "run",
+                // "--no-debugger",
+                // "--no-reload"
+            ],
+            "envFile": ".env_dev",
+            "jinja": true
+        },
+
+
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "env": {
+                "FLASK_APP": "flaskr",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "envFile": ".env_dev",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "PyTest: Flask",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "module": "pytest",
+            "args": [
+                "-v",
+                "-m not crypto and not s3_slow and not s3",
+                "-m pyfish_web_gui",
+                // "-k flaskr/test_blog",
+                // "-m pfileset",
+                // "-m cryto_gpg",
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "FLASK_APP": "flaskr",
+                "FLASK_ENV": "testing",
+                "FLASK_DEBUG": "1"
+            },
+            // "envFile": "tests/.env_test",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                // "WaitOnNormalExit",
+                "RedirectOutput"
+            ]
+        }
+    ]
+}
